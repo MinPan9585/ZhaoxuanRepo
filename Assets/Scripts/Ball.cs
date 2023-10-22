@@ -11,6 +11,7 @@ public class Ball : MonoBehaviour
     public GameManager gameManager;
     public GameObject coinParticle;
     public GameObject flagParticle;
+    public GameObject blueParticle;
 
     public bool gameStarted = false;
     public MeshRenderer meshRend;
@@ -25,6 +26,7 @@ public class Ball : MonoBehaviour
             //print(1111);
             gameManager.lives++;
             meshRend.material = ballMats[gameManager.lives-1];
+            Instantiate(blueParticle, other.gameObject.transform.position, Quaternion.identity);
         }
         if(other.CompareTag("Spike") || other.CompareTag("Water"))
         {
